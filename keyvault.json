@@ -1,0 +1,89 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vault-name": {
+            "type": "string",
+            "defaultValue": "keyVault1",
+            "metadata": {
+                "description": "KeyVault name"
+            }
+        },
+        "vault-display-name": {
+            "type": "string",
+            "defaultValue": "keyVault1",
+            "metadata": {
+                "description": "KeyVault display name"
+            }
+        },
+        "Secret1": {
+            "type": "string",
+            "defaultValue": "keyVaultSecret1"
+        },
+        "admin-password": {
+            "type": "string",
+            "defaultValue": "secretValue",
+            "metadata": {
+                "description": "my secret password to keep it safe"
+            }
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "[parameters('vault-name')]",
+            "type": "Microsoft.KeyVault/vaults",
+            "apiVersion": "2022-07-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "[parameters('vault-display-name')]"
+            },
+            "properties": {
+                "enabledForDeployment": true,
+                "enabledForTemplateDeployment": true,
+                "enabledForDiskEncryption": true,
+                "tenantId": "5d2d0499-228c-4329-983e-4d5c98a6d066",
+                "accessPolicies": [
+                    {
+                        "tenantId": "5d2d0499-228c-4329-983e-4d5c98a6d066",
+                        "objectId": "fa4a00fe-788a-41fb-ad61-4afc18124485",
+                        "permissions": {
+                            "certificates": [
+                                "All"
+                            ],
+                            "keys": [
+                                "All"
+                            ],
+                            "secrets": [
+                                "All"
+                            ],
+                            "storage": [
+                                "All"
+                            ]
+                        }
+                    }
+                ],
+                "sku": {
+                    "name": "standard",
+                    "family": "A"
+                },
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "defaultAction": "Allow"
+                }
+            }
+        },
+        {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "apiVersion": "2021-11-01-preview",
+            "name": "[format('{0}/{1}', parameters('vault-name'),parameters('Secret1'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('vault-name'))]"
+            ],
+            "properties": {
+                "value": "[parameters('admin-password')]"
+            }
+        }
+    ]
+}
