@@ -75,8 +75,8 @@
             }
         },
         {
-      "type": "Microsoft.KeyVault/vaults/secrets",
-      "apiVersion": "2021-11-01-preview",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "apiVersion": "2021-11-01-preview",
             "name": "[format('{0}/{1}', parameters('vault-name'),parameters('Secret1'))]",
             "dependsOn": [
                 "[resourceId('Microsoft.KeyVault/vaults', parameters('vault-name'))]"
@@ -85,5 +85,6 @@
                 "value": "[parameters('admin-password')]"
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
