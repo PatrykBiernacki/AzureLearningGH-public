@@ -1,0 +1,9 @@
+{
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2022-11-01",
+    "name": "[parameters('vmName')]",
+    "location": "[parameters('location')]",
+    "hardwareProfile": {
+        "vmSize": "[parameters('vmSize')]"
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName":{
+            "type": "string",
+            "defaultValue": "simple-vm"
+        },
+        "vmSize":{
+            "type": "string",
+            "defaultValue": "Standard_A1_v2"
+        },
+        "networkname":{
+            "type": "string",
+            "defaultValue": "simple-vm-network"
+        },
+        "ipname":{
+            "type": "string",
+            "defaultValue": "simple-vm-ip"
+        },
+        "publicipname":{
+            "type": "string",
+            "defaultValue": "simple-vm-public-ip"
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Compute/virtualMachines",
+        "apiVersion": "2015-06-15",
+        "name": "[parameters('vmName')]",
+        "location": "westeurope",
+        "properties":{
+        "hardwareProfile": {
+            "vmSize": "[parameters('vmSize')]"
+        },
+        "networkProfile": {
+            "networkApiVersion": "2020-11-01",
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[parameters('networkname')]",   
+                "properties": {
+                  "deleteOption": "Delete",
+                  "disableTcpStateTracking": "No",
+                  "ipConfigurations": [
+                    {
+                      "name": "[parameters('ipname')]",
+                      "properties": {
+                        "primary": "yes",
+                        "privateIPAddressVersion": "IPv6",
+                        "publicIPAddressConfiguration": {
+                          "name": "[parameters('publicipname')]",
+                          "properties": {
+                            "deleteOption": "Delete",
+                            "publicIPAddressVersion": "IPv6",
+                            "publicIPAllocationMethod": "Dynamic"
+                          },
+                          "sku": {
+                            "name": "Basic",
+                            "tier": "Regional"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+        }
+    }
+    }   
+    ]
+    
+}
