@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "policyAssignmentName": {
-            "value": "RequireTag"
+            "value": "Require Tag for each created resource"
         },
         "policy-Definition-ID": {
             "value": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62"
