@@ -13,11 +13,15 @@ steps:
     resourceGroupName: 'rg-dev-01'
     location: 'West Europe'
     templateLocation: 'URL of the file'
-    csmFile: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.json'
-    csmParametersFile: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.parameters.json'
+    csmFile: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.json cpsh3j2pr2622regi4m3vynnu4752ywvas76gmkseqznkzynv4pq'
+    csmParametersFile: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.parameters.json cpsh3j2pr2622regi4m3vynnu4752ywvas76gmkseqznkzynv4pq'
     deploymentMode: 'Incremental'
     deploymentName: 'MyFirstPipeline'
-    templateLinkUri: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.json'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+
+
+
+
+
