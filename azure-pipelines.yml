@@ -2,7 +2,7 @@
 
 trigger:
 - master
-
+pool: Self-hosted-agent-test
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
