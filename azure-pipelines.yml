@@ -17,6 +17,7 @@ steps:
     csmParametersFile: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.parameters.json'
     deploymentMode: 'Incremental'
     deploymentName: 'MyFirstPipeline'
+    templateLinkUri: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.json'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
