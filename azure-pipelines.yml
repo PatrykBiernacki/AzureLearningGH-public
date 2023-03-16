@@ -13,7 +13,7 @@ steps:
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/PatrykBiernacki/AzureLearningGH-public/master/RGdeployment.json'
     deploymentMode: 'Incremental'
-    deploymentName: 'RG deployment'
+    deploymentName: 'RGdeploy'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
