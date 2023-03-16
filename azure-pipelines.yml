@@ -1,0 +1,27 @@
+# Starter pipeline
+
+trigger:
+- master
+pool: Self-hosted-agent-test
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'PatrykAzureLearning'
+    subscriptionId: '6001976b-5068-430d-807b-d2b62d8f106a'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'rg-dev-01'
+    location: 'West Europe'
+    templateLocation: 'URL of the file'
+    csmFile: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.json?cpsh3j2pr2622regi4m3vynnu4752ywvas76gmkseqznkzynv4pq'
+    csmParametersFile: 'https://dev.azure.com/patrykbiernacki11/PatrykTestProject/_git/AzureLearning?path=/policy.parameters.json?cpsh3j2pr2622regi4m3vynnu4752ywvas76gmkseqznkzynv4pq'
+    deploymentMode: 'Incremental'
+    deploymentName: 'MyFirstPipeline'
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+
+
+
+
