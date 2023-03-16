@@ -13,7 +13,7 @@ steps:
     resourceGroupName: 'rg-dev-01'
     location: 'West Europe'
     templateLocation: 'URL of the file'
-    csmFile: './RGdeployment.json'
+    csmFile: 'RGdeployment.json'
     deploymentMode: 'Incremental'
     deploymentName: 'MyFirstPipeline'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
